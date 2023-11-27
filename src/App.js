@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import joueurs from './joueurs';
 
-function App() {
+
+import Player from './Player';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div  className='cot'>
+       {/* affichage tous les palyers d'un array joueurs dans une carte passe par  props   */}
+      <div className='info' >
+       { joueurs.map (el => <Player   className="info" pr={el}/>)} 
+    
     </div>
-  );
-}
+    </div>
 
-export default App;
+  )
+}
+// Spécifie les valeurs par défaut des props :
+Player.defaultprops ={    
+  " id": null,
+"name":" inconnu",
+"team":"inconnu",
+"nationality": "inconnu",
+"jerseyNumber": null,
+"age": null,
+"imageUrl": null };
+
+export default App
